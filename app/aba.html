@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weed Cambodia</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="../aba.css">
+    <style>
+        body {
+            background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtEWBHFUyuvcs5T-B4fHrYRn_gKp_FicDCmA&s) no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #219da8;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #151111;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input, textarea, button {
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0844ce;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0634a2;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="sendEmail(); return false;">
+        <h1>PEY MONEY BUY</h1>
+
+        <img src="../img/ABA.jpg" style="width: 7cm;" alt="ABA Logo">
+
+        <h2>Telegram For Me : +855 15-663-024</h2>
+        <img src="../img/te.png" style="width: 4cm;" alt="Telegram Logo">
+        <h3>https://t.me/dyzento</h3>
+
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="namebank" placeholder="Namebank" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="phone" placeholder="Your Phone Number" required>
+        <textarea id="message" cols="30" rows="4" placeholder="Leave your message"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                SecureToken: "b4f6afc9-6cec-46dc-b2dc-f421174a3d42",
+                To: 'hoengmengdy.biu@gmail.com',
+                From: "hoengmengdy.biu@gmail.com",
+                Subject: "New Form Submission",
+                Body: "Name: " + document.getElementById("name").value
+                    + "<br> Namebank: " + document.getElementById("namebank").value
+                    + "<br> Address: " + document.getElementById("address").value
+                    + "<br> Email: " + document.getElementById("email").value
+                    + "<br> Phone No: " + document.getElementById("phone").value
+                    + "<br> Message: " + document.getElementById("message").value
+            }).then(
+                message => alert("Message sent successfully")
+            ).catch(
+                error => alert("Failed to send message: " + error)
+            );
+        }
+    </script>
+</body>
+</html>
